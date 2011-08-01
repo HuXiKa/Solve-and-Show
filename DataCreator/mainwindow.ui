@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>379</width>
+    <height>456</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Adatmódosító</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../DataCreator-build-desktop/data.jpg</normaloff>../DataCreator-build-desktop/data.jpg</iconset>
+  </property>
+  <property name="documentMode">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>Változók</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0" colspan="2">
+         <widget class="QTableWidget" name="addVariableTableWidget">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>true</bool>
+          </property>
+          <property name="rowCount">
+           <number>1</number>
+          </property>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <row/>
+          <column>
+           <property name="text">
+            <string>Jelölés</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Érték</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Leírás</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="addVariablePushButton">
+          <property name="text">
+           <string>Hozzáadás</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="removeVariablePushButton">
+          <property name="text">
+           <string>Törlés</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0" colspan="2">
+         <widget class="QTableWidget" name="variablesTableWidget">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>true</bool>
+          </property>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>Jelölés</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Érték</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Leírás</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>Egyenletek</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="0" column="0" colspan="2">
+         <widget class="QTableWidget" name="addEquationTableWidget">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>true</bool>
+          </property>
+          <property name="rowCount">
+           <number>1</number>
+          </property>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <row/>
+          <column>
+           <property name="text">
+            <string>Egyenlet</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Név</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Megjelenik</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="addEquationPushButton">
+          <property name="text">
+           <string>Hozzáadás</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="removeEquationPushButton">
+          <property name="text">
+           <string>Törlés</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0" colspan="2">
+         <widget class="EditableTabWidget" name="equationsTabWidget">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="tabPosition">
+           <enum>QTabWidget::North</enum>
+          </property>
+          <property name="tabShape">
+           <enum>QTabWidget::Rounded</enum>
+          </property>
+          <property name="currentIndex">
+           <number>-1</number>
+          </property>
+          <property name="elideMode">
+           <enum>Qt::ElideLeft</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_3">
+       <attribute name="title">
+        <string>Egyenesek</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="0" column="0" colspan="2">
+         <widget class="QTableWidget" name="addCurveTableWidget">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="autoScroll">
+           <bool>true</bool>
+          </property>
+          <property name="tabKeyNavigation">
+           <bool>true</bool>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>true</bool>
+          </property>
+          <property name="showGrid">
+           <bool>true</bool>
+          </property>
+          <property name="gridStyle">
+           <enum>Qt::SolidLine</enum>
+          </property>
+          <property name="sortingEnabled">
+           <bool>false</bool>
+          </property>
+          <property name="rowCount">
+           <number>1</number>
+          </property>
+          <attribute name="horizontalHeaderCascadingSectionResizes">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="horizontalHeaderDefaultSectionSize">
+           <number>80</number>
+          </attribute>
+          <attribute name="horizontalHeaderHighlightSections">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <row/>
+          <column>
+           <property name="text">
+            <string>Egyenlet</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Név</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>X tengely</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Y tengely</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="addCurvePushButton">
+          <property name="text">
+           <string>Hozzáadás</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="removeCurvePushButton">
+          <property name="text">
+           <string>Törlés</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0" colspan="2">
+         <widget class="QTableWidget" name="curvesTableWidget">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>true</bool>
+          </property>
+          <property name="rowCount">
+           <number>0</number>
+          </property>
+          <attribute name="horizontalHeaderDefaultSectionSize">
+           <number>80</number>
+          </attribute>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>Egyenlet</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Név</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>X tengely</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Y tengely</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_4">
+       <attribute name="title">
+        <string>Egyéb</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Készítő</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="creatorLineEdit"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Modulnév</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="modulNameLineEdit"/>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Leírás</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QPlainTextEdit" name="aboutPlainTextEdit"/>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>379</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuF_jl">
+    <property name="title">
+     <string>Fájl</string>
+    </property>
+    <addaction name="actionMegnyit_s"/>
+    <addaction name="separator"/>
+    <addaction name="actionMent_s_m_sk_nt"/>
+    <addaction name="separator"/>
+    <addaction name="actionKil_p_s"/>
+   </widget>
+   <widget class="QMenu" name="menuN_vjegy">
+    <property name="title">
+     <string>Névjegy</string>
+    </property>
+    <addaction name="actionAdatm_dos_t_n_vjegy"/>
+    <addaction name="actionQt_n_vjegy"/>
+   </widget>
+   <addaction name="menuF_jl"/>
+   <addaction name="menuN_vjegy"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="action_j">
+   <property name="text">
+    <string>Új</string>
+   </property>
+  </action>
+  <action name="actionMegnyit_s">
+   <property name="text">
+    <string>Megnyitás</string>
+   </property>
+  </action>
+  <action name="actionMent_s">
+   <property name="text">
+    <string>Mentés</string>
+   </property>
+  </action>
+  <action name="actionMent_s_m_sk_nt">
+   <property name="text">
+    <string>Mentés</string>
+   </property>
+  </action>
+  <action name="actionKil_p_s">
+   <property name="text">
+    <string>Kilépés</string>
+   </property>
+  </action>
+  <action name="actionAdatm_dos_t_n_vjegy">
+   <property name="text">
+    <string>Adatmódosító névjegy</string>
+   </property>
+  </action>
+  <action name="actionQt_n_vjegy">
+   <property name="text">
+    <string>Qt névjegy</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>EditableTabWidget</class>
+   <extends>QTabWidget</extends>
+   <header>editabletabwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actionMegnyit_s</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>open()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>159</x>
+     <y>132</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionMent_s_m_sk_nt</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>saveAs()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>171</x>
+     <y>189</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addVariablePushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addVariable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>110</x>
+     <y>217</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>182</x>
+     <y>198</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>removeVariablePushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>removeVariable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>356</x>
+     <y>217</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>177</x>
+     <y>196</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addEquationPushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addEquation()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>107</x>
+     <y>249</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>177</x>
+     <y>196</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>removeEquationPushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>removeEquation()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>356</x>
+     <y>249</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>177</x>
+     <y>196</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionAdatm_dos_t_n_vjegy</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>about()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>189</x>
+     <y>207</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionKil_p_s</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>189</x>
+     <y>207</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addCurvePushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addCurve()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>39</x>
+     <y>244</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>5</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>removeCurvePushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>removeCurve()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>328</x>
+     <y>240</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>375</x>
+     <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>open()</slot>
+  <slot>saveAs()</slot>
+  <slot>addVariable()</slot>
+  <slot>removeVariable()</slot>
+  <slot>addEquation()</slot>
+  <slot>removeEquation()</slot>
+  <slot>about()</slot>
+  <slot>addCurve()</slot>
+  <slot>removeCurve()</slot>
+ </slots>
+</ui>

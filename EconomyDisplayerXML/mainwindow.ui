@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>929</width>
+    <height>373</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Economy Displayer</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"> QMenu {
+     background-color: #ABABAB; /* sets background of the menu */
+     border: 1px solid black;
+ }
+
+ QMenu::item {
+     /* sets background of menu item. set this to something non-transparent
+         if you want menu color and menu item color to be different */
+     background-color: transparent;
+ }
+
+QMenu::item:selected { /* when user selects item using mouse or keyboard */
+     background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(255, 255, 255), stop:1 rgb(189, 189, 189))
+ }
+
+QMenuBar {
+     background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                       stop:0 lightgray, stop:1 darkgray);
+ }
+
+ QMenuBar::item {
+     spacing: 3px; /* spacing between menu bar items */
+     padding: 1px 4px;
+     background: transparent;
+     border-radius: 4px;
+ }
+
+ QMenuBar::item:selected { /* when selected using mouse or keyboard */
+     background: #a8a8a8;
+ }
+
+ QMenuBar::item:pressed {
+     background: #888888;
+ }
+
+ QToolBar {
+     background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                       stop:1 lightgray, stop:0 darkgray);
+     spacing: 3px; /* spacing between items in the tool bar */
+ }
+
+QDialog {
+	background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 		rgba(100, 100, 100, 255), stop:1 rgba(255, 255, 255, 255));
+}
+
+QListView, QTreeView{
+	background: qlineargradient(spread:pad, x2:0, y2:0, x1:0, y1:1, stop:0 		rgba(100, 100, 100, 100), stop:1 rgba(255, 255, 255, 255));
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <widget class="QSplitter" name="splitter">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="opaqueResize">
+       <bool>true</bool>
+      </property>
+      <widget class="QTableWidget" name="valuesTableWidget">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="alternatingRowColors">
+        <bool>true</bool>
+       </property>
+       <attribute name="verticalHeaderVisible">
+        <bool>false</bool>
+       </attribute>
+       <column>
+        <property name="text">
+         <string>Név</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Érték</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Leírás</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Változás</string>
+        </property>
+       </column>
+      </widget>
+      <widget class="QGroupBox" name="groupBox">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="title">
+        <string/>
+       </property>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0">
+         <layout class="QGridLayout" name="mainLayout">
+          <item row="0" column="0">
+           <widget class="QMdiArea" name="mdi">
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>929</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuBe_ll_t_sok">
+    <property name="title">
+     <string>Beállítások</string>
+    </property>
+    <addaction name="actionModul_megnyit_sa"/>
+    <addaction name="actionRajzol_s"/>
+    <addaction name="action_rt_kad_s"/>
+    <addaction name="actionResetVariables"/>
+    <addaction name="actionShowNoValue"/>
+    <addaction name="separator"/>
+    <addaction name="actionTeljes_k_perny_s_m_d"/>
+    <addaction name="actionBe_ll_t_sok"/>
+    <addaction name="actionKil_p_s"/>
+   </widget>
+   <widget class="QMenu" name="menuGazdas_gi_esem_nyek">
+    <property name="title">
+     <string>Gazdasági események</string>
+    </property>
+    <addaction name="actionMonet_ris_l_p_sek"/>
+    <addaction name="actionFisk_lis_l_p_sek"/>
+    <addaction name="separator"/>
+    <addaction name="actionK_ls_sokkok"/>
+   </widget>
+   <widget class="QMenu" name="menuSeg_ts_g">
+    <property name="title">
+     <string>Súgó</string>
+    </property>
+    <addaction name="actionN_vjegy"/>
+    <addaction name="actionQt_n_vjegy"/>
+   </widget>
+   <addaction name="menuBe_ll_t_sok"/>
+   <addaction name="menuGazdas_gi_esem_nyek"/>
+   <addaction name="menuSeg_ts_g"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>40</width>
+     <height>40</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionBe_ll_t_sok"/>
+   <addaction name="actionRajzol_s"/>
+   <addaction name="separator"/>
+   <addaction name="actionResetVariables"/>
+   <addaction name="action_rt_kad_s"/>
+   <addaction name="actionSz_mol_s"/>
+   <addaction name="actionEgyenlet_megad_sa"/>
+   <addaction name="separator"/>
+   <addaction name="actionMonet_ris_l_p_sek"/>
+   <addaction name="actionFisk_lis_l_p_sek"/>
+   <addaction name="actionV_ltoz_s_v_gleges_t_se"/>
+   <addaction name="actionV_ltoz_s_visszavon_sa"/>
+   <addaction name="separator"/>
+   <addaction name="actionKil_p_s"/>
+  </widget>
+  <action name="actionRajzol_s">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/icons/ikon1-ceruza copy.png</normaloff>:/icons/icons/ikon1-ceruza copy.png</iconset>
+   </property>
+   <property name="text">
+    <string>Rajzolás</string>
+   </property>
+   <property name="toolTip">
+    <string>Egyenesek rajzolása</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::ApplicationSpecificRole</enum>
+   </property>
+  </action>
+  <action name="action_rt_kad_s">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/icons/ikon11-x copy.png</normaloff>:/icons/icons/ikon11-x copy.png</iconset>
+   </property>
+   <property name="text">
+    <string>Értékadás</string>
+   </property>
+  </action>
+  <action name="actionMonet_ris_l_p_sek">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/icons/ikon3-erme copy.png</normaloff>:/icons/icons/ikon3-erme copy.png</iconset>
+   </property>
+   <property name="text">
+    <string>Monetáris lépések</string>
+   </property>
+  </action>
+  <action name="actionFisk_lis_l_p_sek">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/icons/ikon5-fp2 copy.png</normaloff>:/icons/icons/ikon5-fp2 copy.png</iconset>
+   </property>
+   <property name="text">
+    <string>Fiskális lépések</string>
+   </property>
+  </action>
+  <action name="actionK_ls_sokkok">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Külső sokkok</string>
+   </property>
+  </action>
+  <action name="actionResetVariables">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/icons/ikon6-reset copy.png</normaloff>:/icons/icons/ikon6-reset copy.png</iconset>
+   </property>
+   <property name="text">
+    <string>Értékek visszaállítása</string>
+   </property>
+   <property name="toolTip">
+    <string>Értékek visszaállítása</string>
+   </property>
+  </action>
+  <action name="actionShowNoValue">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>null érték látszódik</string>
+   </property>
+  </action>
+  <action name="actionKil_p_s">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/icons/ikon10-exit copy.png</normaloff>:/icons/icons/ikon10-exit copy.png</iconset>
+   </property>
+   <property name="text">
+    <string>Kilépés</string>
+   </property>
+  </action>
+  <action name="actionSz_mol_s">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/icons/ikon2-gyok copy.png</normaloff>:/icons/icons/ikon2-gyok copy.png</iconset>
+   </property>
+   <property name="text">
+    <string>Számolás</string>
+   </property>
+   <property name="toolTip">
+    <string>Számolás</string>
+   </property>
+  </action>
+  <action name="actionTeljes_k_perny_s_m_d">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Teljes képernyős mód</string>
+   </property>
+  </action>
+  <action name="actionN_vjegy">
+   <property name="text">
+    <string>Névjegy</string>
+   </property>
+  </action>
+  <action name="actionQt_n_vjegy">
+   <property name="text">
+    <string>Qt névjegy</string>
+   </property>
+  </action>
+  <action name="actionV_ltoz_s_v_gleges_t_se">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/icons/ikon7-pipa1 copy.png</normaloff>:/icons/icons/ikon7-pipa1 copy.png</iconset>
+   </property>
+   <property name="text">
+    <string>Változás véglegesítése</string>
+   </property>
+   <property name="toolTip">
+    <string>Változás véglegesítése</string>
+   </property>
+  </action>
+  <action name="actionV_ltoz_s_visszavon_sa">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/icons/ikon8-vissza copy.png</normaloff>:/icons/icons/ikon8-vissza copy.png</iconset>
+   </property>
+   <property name="text">
+    <string>Változás visszavonása</string>
+   </property>
+   <property name="toolTip">
+    <string>Változás visszavonása</string>
+   </property>
+  </action>
+  <action name="actionBe_ll_t_sok">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/icons/ikon9-options copy.png</normaloff>:/icons/icons/ikon9-options copy.png</iconset>
+   </property>
+   <property name="text">
+    <string>Beállítások</string>
+   </property>
+  </action>
+  <action name="actionEgyenlet_megad_sa">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/icons/ikon5-ygx copy.png</normaloff>:/icons/icons/ikon5-ygx copy.png</iconset>
+   </property>
+   <property name="text">
+    <string>Egyenlet megadása</string>
+   </property>
+  </action>
+  <action name="actionModul_megnyit_sa">
+   <property name="text">
+    <string>Modul megnyitása</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>actionKil_p_s</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>378</x>
+     <y>163</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSz_mol_s</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>calculate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>378</x>
+     <y>163</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionTeljes_k_perny_s_m_d</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>setFullscreenMode(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>378</x>
+     <y>163</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionV_ltoz_s_visszavon_sa</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>undoPolicy()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>378</x>
+     <y>163</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>calculate()</slot>
+  <slot>setFullscreenMode(bool)</slot>
+  <slot>undoPolicy()</slot>
+  <slot>finalizePolicy()</slot>
+ </slots>
+</ui>

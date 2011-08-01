@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>icons/ikon1-ceruza copy.png</file>
+        <file>icons/ikon2-gyok copy.png</file>
+        <file>icons/ikon3-erme copy.png</file>
+        <file>icons/ikon5-fp2 copy.png</file>
+        <file>icons/ikon5-ygx copy.png</file>
+        <file>icons/ikon6-reset copy.png</file>
+        <file>icons/ikon7-pipa1 copy.png</file>
+        <file>icons/ikon8-vissza copy.png</file>
+        <file>icons/ikon9-options copy.png</file>
+        <file>icons/ikon10-exit copy.png</file>
+        <file>icons/ikon11-x copy.png</file>
+        <file>icons/qt-logo.png</file>
+    </qresource>
+    <qresource prefix="/translations"/>
+</RCC>
